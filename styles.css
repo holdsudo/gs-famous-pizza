@@ -310,6 +310,22 @@ h1 em {
   background-size: cover;
   background-position: center;
 }
+.food-art.tile {
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 50% 46%, rgba(22, 11, 8, 0) 34%, rgba(22, 11, 8, .55) 100%),
+    repeating-conic-gradient(from 0deg, rgba(216, 41, 27, .16) 0deg 90deg, rgba(43, 10, 6, .5) 90deg 180deg);
+  background-size: 100% 100%, 46px 46px;
+}
+.food-art.tile img {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(255, 244, 230, .85);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, .45);
+}
 .menu-card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; gap: 8px; }
 .menu-card-body .eyebrow { margin: 0; font-size: 11.5px; color: var(--milk-faint); }
 .menu-card h3 {
