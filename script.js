@@ -8,15 +8,15 @@ const categories = [
 ];
 
 const menuItems = [
-  { id: 'famous-cheese', category: 'pizza', name: 'Famous Cheese Pie', description: 'Classic red sauce, whole milk mozzarella, crisp edge, and a balanced fold.', basePrice: 17.95, sizes: ['Small', 'Large', 'Sicilian'], toppings: ['Pepperoni', 'Mushrooms', 'Onions', 'Basil', 'Extra cheese'] },
-  { id: 'pepperoni-glow', category: 'pizza', name: 'Pepperoni Glow', description: 'Cupped pepperoni, extra cheese pull, tomato finish, and a little heat.', basePrice: 21.5, sizes: ['Small', 'Large'], toppings: ['Hot honey', 'Jalapenos', 'Garlic', 'Extra pepperoni'] },
-  { id: 'garden-luxe', category: 'pizza', name: 'Garden Luxe', description: 'Peppers, mushrooms, onions, olives, basil, and bright tomato sauce.', basePrice: 22, sizes: ['Small', 'Large'], toppings: ['Spinach', 'Broccoli', 'Ricotta', 'Roasted garlic'] },
-  { id: 'chicken-parm-hero', category: 'subs', name: 'Chicken Parm Hero', description: 'Crispy chicken, marinara, melted mozzarella, toasted roll.', basePrice: 11.5, sizes: ['Regular', 'Large'], toppings: ['Extra mozzarella', 'Peppers', 'Onions'] },
-  { id: 'italian-hero', category: 'subs', name: 'Famous Italian Hero', description: 'Layered deli meats, provolone, lettuce, tomato, oil, and vinegar.', basePrice: 10.95, sizes: ['Regular', 'Large'], toppings: ['Hot peppers', 'Mayo', 'Extra provolone'] },
-  { id: 'baked-ziti', category: 'pasta', name: 'Baked Ziti', description: 'Ricotta, marinara, mozzarella cap, and oven-baked edges.', basePrice: 13.95, sizes: ['Tray'], toppings: ['Meatballs', 'Sausage', 'Extra ricotta'] },
-  { id: 'caesar', category: 'salads', name: 'Crisp Caesar', description: 'Romaine, parmesan, croutons, Caesar dressing, optional grilled chicken.', basePrice: 9.95, sizes: ['Regular'], toppings: ['Grilled chicken', 'Extra parmesan'] },
-  { id: 'garlic-knots', category: 'sides', name: 'Garlic Knots', description: 'Warm knots, garlic oil, parsley, and marinara for dipping.', basePrice: 5.95, sizes: ['6 pack', '12 pack'], toppings: ['Extra sauce', 'Parmesan'] },
-  { id: 'soda', category: 'drinks', name: 'Cold Soda', description: 'A cold finish for the full pizza order.', basePrice: 2.75, sizes: ['Can', '2 liter'], toppings: [] }
+  { id: 'famous-cheese', photo: 'assets/pizza-best.jpg', category: 'pizza', name: 'Famous Cheese Pie', description: 'Classic red sauce, whole milk mozzarella, crisp edge, and a balanced fold.', basePrice: 17.95, sizes: ['Small', 'Large', 'Sicilian'], toppings: ['Pepperoni', 'Mushrooms', 'Onions', 'Basil', 'Extra cheese'] },
+  { id: 'pepperoni-glow', photo: 'assets/deal-cinco.jpg', category: 'pizza', name: 'Pepperoni Glow', description: 'Cupped pepperoni, extra cheese pull, tomato finish, and a little heat.', basePrice: 21.5, sizes: ['Small', 'Large'], toppings: ['Hot honey', 'Jalapenos', 'Garlic', 'Extra pepperoni'] },
+  { id: 'garden-luxe', photo: 'assets/food-spread.jpg', category: 'pizza', name: 'Garden Luxe', description: 'Peppers, mushrooms, onions, olives, basil, and bright tomato sauce.', basePrice: 22, sizes: ['Small', 'Large'], toppings: ['Spinach', 'Broccoli', 'Ricotta', 'Roasted garlic'] },
+  { id: 'chicken-parm-hero', photo: 'assets/storefront-deal.jpg', category: 'subs', name: 'Chicken Parm Hero', description: 'Crispy chicken, marinara, melted mozzarella, toasted roll.', basePrice: 11.5, sizes: ['Regular', 'Large'], toppings: ['Extra mozzarella', 'Peppers', 'Onions'] },
+  { id: 'italian-hero', photo: 'assets/food-spread.jpg', category: 'subs', name: 'Famous Italian Hero', description: 'Layered deli meats, provolone, lettuce, tomato, oil, and vinegar.', basePrice: 10.95, sizes: ['Regular', 'Large'], toppings: ['Hot peppers', 'Mayo', 'Extra provolone'] },
+  { id: 'baked-ziti', photo: 'assets/deal-cinco.jpg', category: 'pasta', name: 'Baked Ziti', description: 'Ricotta, marinara, mozzarella cap, and oven-baked edges.', basePrice: 13.95, sizes: ['Tray'], toppings: ['Meatballs', 'Sausage', 'Extra ricotta'] },
+  { id: 'caesar', photo: 'assets/food-spread.jpg', category: 'salads', name: 'Crisp Caesar', description: 'Romaine, parmesan, croutons, Caesar dressing, optional grilled chicken.', basePrice: 9.95, sizes: ['Regular'], toppings: ['Grilled chicken', 'Extra parmesan'] },
+  { id: 'garlic-knots', photo: 'assets/deal-cinco.jpg', category: 'sides', name: 'Garlic Knots', description: 'Warm knots, garlic oil, parsley, and marinara for dipping.', basePrice: 5.95, sizes: ['6 pack', '12 pack'], toppings: ['Extra sauce', 'Parmesan'] },
+  { id: 'soda', photo: 'assets/food-spread.jpg', category: 'drinks', name: 'Cold Soda', description: 'A cold finish for the full pizza order.', basePrice: 2.75, sizes: ['Can', '2 liter'], toppings: [] }
 ];
 
 const state = {
@@ -48,7 +48,7 @@ function renderMenu() {
   const items = menuItems.filter((item) => item.category === state.category);
   gridEl.innerHTML = items.map((item) => `
     <article class="menu-card reveal is-visible">
-      <div class="food-art" aria-hidden="true"></div>
+      <div class="food-art" style="background-image:url('${item.photo}')" aria-hidden="true"></div>
       <div class="menu-card-body">
         <p class="eyebrow">${categories.find((category) => category.id === item.category).label}</p>
         <h3>${item.name}</h3>
@@ -299,44 +299,20 @@ function startHeroScene() {
     context.setTransform(window.devicePixelRatio, 0, 0, window.devicePixelRatio, 0, 0);
   }
 
-  function drawPizza(x, y, radius, rotation) {
-    context.save();
-    context.translate(x, y);
-    context.rotate(rotation);
-    const gradient = context.createRadialGradient(0, 0, radius * .1, 0, 0, radius);
-    gradient.addColorStop(0, '#ffd86f');
-    gradient.addColorStop(.62, '#f0b84c');
-    gradient.addColorStop(.75, '#b45b22');
-    gradient.addColorStop(1, '#6f2b16');
-    context.fillStyle = gradient;
-    context.beginPath();
-    context.arc(0, 0, radius, 0, Math.PI * 2);
-    context.fill();
-    const toppings = [
-      [-.35, -.24, '#b9271c'], [.2, -.18, '#b9271c'], [.38, .2, '#b9271c'],
-      [-.18, .32, '#2f6f47'], [.18, .42, '#17130f'], [.08, -.45, '#f7f1e7']
-    ];
-    toppings.forEach(([tx, ty, color]) => {
-      context.fillStyle = color;
-      context.beginPath();
-      context.arc(tx * radius, ty * radius, radius * .09, 0, Math.PI * 2);
-      context.fill();
-    });
-    context.restore();
-  }
-
   function draw() {
     context.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
     const displayWidth = canvas.offsetWidth;
     const displayHeight = canvas.offsetHeight;
     const pulse = reduceMotion ? 0 : Math.sin(frame / 70) * 8;
-    drawPizza(displayWidth * .72, displayHeight * .45 + pulse, Math.min(displayWidth, displayHeight) * .22, -.2 + frame / 900);
+    context.save();
+    context.translate(0, pulse * .4);
     context.fillStyle = 'rgba(217,164,65,.08)';
     for (let i = 0; i < 7; i += 1) {
       context.beginPath();
       context.arc(displayWidth * (.58 + i * .06), displayHeight * (.24 + (i % 3) * .18), 80 + i * 18, 0, Math.PI * 2);
       context.fill();
     }
+    context.restore();
     frame += 1;
     if (!reduceMotion) requestAnimationFrame(draw);
   }
