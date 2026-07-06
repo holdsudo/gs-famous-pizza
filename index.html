@@ -3,26 +3,29 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="G's Famous Pizza (Guallpa's) — Iselin, NJ. Family-owned since 1999. Order famous pies, catch every World Cup match, buy 2 pizzas get 1 plain free.">
-    <meta name="theme-color" content="#5c100a">
+    <meta name="description" content="G's Famous Pizza (Guallpa's) — Iselin, NJ. Family-owned since 1999. 10-inch personal pan pizzas, halal chicken pies, wings & fries. Buy 2 pizzas with any toppings, get 1 plain free.">
+    <meta name="theme-color" content="#2B0A06">
     <title>G's Famous Pizza | Guallpa's — Iselin, NJ</title>
     <link rel="icon" type="image/jpeg" href="assets/logo-roundel.jpg">
     <link rel="apple-touch-icon" href="assets/logo-roundel.jpg">
     <meta property="og:type" content="website">
     <meta property="og:title" content="G's Famous Pizza | Guallpa's — Iselin, NJ">
-    <meta property="og:description" content="Family-owned since 1999. 10-inch personal pan pizzas, specialty pies, wings & fries. Buy 2 pizzas with any toppings, get 1 plain free.">
-    <meta property="og:image" content="assets/brand-banner.jpg">
+    <meta property="og:description" content="You've tried the rest. Now try the best. Family-owned since 1999 — buy 2 pizzas with any toppings, get 1 plain free.">
+    <meta property="og:image" content="assets/storefront-day.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600;700&family=Barlow+Semi+Condensed:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <header class="site-header" data-header>
       <a class="brand" href="#top" aria-label="Guallpa's Famous Pizza home">
-        <span class="brand-mark"><img src="assets/logo-roundel.jpg" alt="Guallpa's chef mascot logo"></span>
-        <span>G's Famous Pizza</span>
+        <span class="brand-mark"><img src="assets/logo-roundel.jpg" alt=""></span>
+        <span class="brand-name">G's Famous Pizza</span>
       </a>
       <nav class="primary-nav" aria-label="Primary navigation">
         <a href="#menu">Menu</a>
-        <a href="#platform">Order OS</a>
+        <a href="#shop">The shop</a>
         <a href="#proof">Reviews</a>
         <a href="#visit">Visit</a>
       </nav>
@@ -31,43 +34,46 @@
 
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
-        <canvas id="hero-scene" class="hero-scene" aria-label="Animated premium pizza presentation"></canvas>
-        <div class="hero-content reveal">
-          <img class="hero-wordmark" src="assets/brand-banner.jpg" alt="G's Famous Pizza — Guallpa's">
-          <p class="eyebrow">Iselin, New Jersey · Family-owned since 1999</p>
-          <h1 id="hero-title">Famous pizza, engineered to order.</h1>
-          <p class="hero-copy">The Guallpa brothers have run Oak Tree Road's famous pizza stop since 1999. Buy 2 pizzas with any toppings, get 1 plain free — and catch every World Cup match live in the shop.</p>
-          <div class="hero-actions">
-            <button class="button primary" type="button" data-scroll-order>Build my order</button>
-            <a class="button secondary" href="#menu">Explore menu</a>
+        <div class="hero-inner">
+          <div class="hero-content reveal">
+            <img class="hero-logo" src="assets/logo-lockup.jpg" alt="G's Famous Pizza — Guallpa's">
+            <p class="eyebrow">Oak Tree Road · Iselin, NJ · Since 1999</p>
+            <h1 id="hero-title">You've tried the rest.<br><em>Now try the best.</em></h1>
+            <p class="hero-copy">Ten-inch personal pan pies out of the deck oven, halal chicken options, and every match live on the big screens. Family-run by the Guallpa brothers for 27 years.</p>
+            <div class="hero-actions">
+              <button class="button primary" type="button" data-scroll-order>Start my order</button>
+              <a class="button secondary" href="#menu">See the menu</a>
+            </div>
+            <p class="hero-facts"><span>4.2★ on Grubhub</span><span>Top 3 Pizza Spot · BusinessRate 2026</span></p>
           </div>
+          <figure class="hero-stage reveal" data-hero-stage>
+            <img class="stage-fallback" src="assets/promo-worldcup.jpg" alt="G's Famous Pizza World Cup 26 watch party poster">
+            <canvas id="hero-scene" aria-label="Watch-party poster"></canvas>
+            <figcaption class="stage-caption">On now at the shop — World Cup 26, every match live</figcaption>
+          </figure>
         </div>
-        <figure class="hero-poster reveal" aria-label="Current promo from the shop's Instagram">
-          <img src="assets/promo-worldcup.jpg" alt="G's Famous Pizza World Cup 2026 watch party poster">
-          <figcaption>Now at the shop · FIFA World Cup 26 watch parties</figcaption>
-        </figure>
-        <aside class="hero-order-card reveal" aria-label="Live order preview">
-          <div class="card-topline">
-            <span>Live order preview</span>
-            <span class="live-dot">Kitchen open</span>
-          </div>
-          <div class="preview-line"><strong>10" Plain Pan Pizza</strong><span>$9.75</span></div>
-          <div class="preview-line"><strong>Guallpa's Famous Special</strong><span>$13.75</span></div>
-          <div class="preview-line"><strong>Pickup ETA</strong><span>18-24 min</span></div>
-        </aside>
       </section>
 
-      <section class="section platform-strip" id="platform" aria-label="Deals and highlights">
-        <div class="strip-item reveal"><strong>Buy 2, get 1 free</strong><span>Buy 2 pizzas with any toppings, get 1 plain pie free</span></div>
-        <div class="strip-item reveal"><strong>Top 3 pizza spot</strong><span>BusinessRate Top 3 Pizza Restaurant award, 2026</span></div>
-        <div class="strip-item reveal"><strong>Every match live</strong><span>World Cup watch parties — big screens, game sound on</span></div>
-      </section>
+      <div class="ticker" aria-hidden="true">
+        <div class="ticker-track">
+          <span>Buy 2 pizzas w/ toppings — get a plain pizza free</span><i>★</i>
+          <span>7 days a week · all day · every day</span><i>★</i>
+          <span>Call ahead (732) 321-5005</span><i>★</i>
+          <span>Now serving falafel</span><i>★</i>
+          <span>Watch every match live</span><i>★</i>
+          <span>Buy 2 pizzas w/ toppings — get a plain pizza free</span><i>★</i>
+          <span>7 days a week · all day · every day</span><i>★</i>
+          <span>Call ahead (732) 321-5005</span><i>★</i>
+          <span>Now serving falafel</span><i>★</i>
+          <span>Watch every match live</span><i>★</i>
+        </div>
+      </div>
 
       <section class="section menu-section" id="menu" aria-labelledby="menu-title">
         <div class="section-heading reveal">
-          <p class="eyebrow">The real menu · straight from Grubhub</p>
-          <h2 id="menu-title">Forty pies and sides, famous since 1999.</h2>
-          <p>The actual Guallpa's menu — 10" personal pans, specialty pies, 16" large pans, wings, and fries. Buy 2 pizzas with any toppings, get 1 plain free.</p>
+          <p class="eyebrow">The real menu</p>
+          <h2 id="menu-title">The pans.</h2>
+          <p>Forty pies and sides, exactly as they sell them — 10" personal pans, specialty pies, 16" large pans, wings, and fries. Buy 2 with any toppings, get 1 plain free.</p>
         </div>
         <div class="menu-tabs reveal" role="tablist" aria-label="Menu categories" data-category-tabs></div>
         <div class="menu-grid" data-menu-grid></div>
@@ -111,17 +117,18 @@
         </form>
       </section>
 
-      <section class="section gallery-section" id="gallery" aria-labelledby="gallery-title">
+      <section class="section gallery-section" id="shop" aria-labelledby="gallery-title">
         <div class="section-heading reveal">
           <p class="eyebrow">Straight from the shop</p>
-          <h2 id="gallery-title">Real pies. Real posts. Real Iselin.</h2>
-          <p>Pulled straight from @guallpasfamouspizza — the food, the deals, and the family behind the counter.</p>
+          <h2 id="gallery-title">Inside the famous.</h2>
+          <p>The counter, the deck ovens, the booths, and the watch-party wall — this is the real Oak Tree Road original.</p>
         </div>
         <div class="gallery-grid">
-          <figure class="gallery-card reveal"><img src="assets/food-spread.jpg" alt="Two pies, wings, and fries from Guallpa's" loading="lazy"><figcaption>The full spread — pies, wings, fries</figcaption></figure>
-          <figure class="gallery-card reveal"><img src="assets/deal-cinco.jpg" alt="Buy 2 pizzas get 1 plain free promo with pepperoni pie and wings" loading="lazy"><figcaption>Buy 2 pizzas, get 1 plain free</figcaption></figure>
-          <figure class="gallery-card reveal"><img src="assets/heart-pizza.jpg" alt="Heart-shaped pizza special" loading="lazy"><figcaption>Heart-shaped pies, made with love</figcaption></figure>
-          <figure class="gallery-card reveal"><img src="assets/family-heart.jpg" alt="Guallpa's team member holding a heart-shaped pizza and the Top 3 award" loading="lazy"><figcaption>Family-run, award in hand</figcaption></figure>
+          <figure class="gallery-card tall reveal"><img src="assets/storefront-day.jpg" alt="Guallpa's Famous Pizza storefront on Oak Tree Road" loading="lazy"><figcaption>The shop, Oak Tree Road</figcaption></figure>
+          <figure class="gallery-card reveal"><img src="assets/kitchen.jpg" alt="The kitchen with deck ovens and pizza boxes" loading="lazy"><figcaption>Deck ovens, box stacks, checkered tile</figcaption></figure>
+          <figure class="gallery-card reveal"><img src="assets/interior-guests.jpg" alt="Regulars at a booth under the Famous Pizza mural" loading="lazy"><figcaption>Regulars under the mural</figcaption></figure>
+          <figure class="gallery-card reveal"><img src="assets/food-olive.jpg" alt="Black olive and jalapeño pies on the table" loading="lazy"><figcaption>Table pies, extra jalapeño</figcaption></figure>
+          <figure class="gallery-card reveal"><img src="assets/poster-round32.jpg" alt="World Cup Round of 32 watch party poster" loading="lazy"><figcaption>Watch-party wall, World Cup 26</figcaption></figure>
         </div>
       </section>
 
@@ -139,13 +146,13 @@
         </div>
       </section>
 
-      <section class="section visit-section" id="visit" aria-labelledby="visit-title">
+      <section class="visit-band" id="visit" aria-labelledby="visit-title">
         <div class="visit-copy reveal">
           <p class="eyebrow">Visit the shop</p>
-          <h2 id="visit-title">Oak Tree Road's famous pizza stop.</h2>
+          <h2 id="visit-title">Pull up to Oak Tree Road.</h2>
           <p class="visit-detail"><strong>1522 Oak Tree Road, Iselin, NJ 08830</strong></p>
           <p class="visit-detail"><a href="tel:+17323215005"><strong>(732) 321-5005</strong></a> · Pickup, delivery via Grubhub, and catering</p>
-          <p>Family-owned by the Guallpa brothers since 1999. Eat pizza, watch football, repeat.</p>
+          <p class="visit-note">Open 7 days a week. Call ahead for faster service.</p>
           <button class="button primary" type="button" data-scroll-order>Start another order</button>
         </div>
       </section>
@@ -185,5 +192,6 @@
     <div class="toast" data-toast role="status" aria-live="polite"></div>
 
     <script src="script.js"></script>
+    <script type="module" src="hero3d.js"></script>
   </body>
 </html>
