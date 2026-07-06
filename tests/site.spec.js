@@ -7,7 +7,7 @@ test('renders premium hero and required proof links', async ({ page }) => {
   await expect(page.getByRole('link', { name: /Facebook/i })).toHaveAttribute('href', 'https://www.facebook.com/guallpafamouspizza/');
   await expect(page.getByRole('link', { name: /Instagram/i })).toHaveAttribute('href', 'https://www.instagram.com/guallpasfamouspizza/');
   await expect(page.getByRole('link', { name: /Yelp/i })).toHaveAttribute('href', 'https://www.yelp.com/biz/guallpas-famous-pizza-iselin');
-  await expect(page.getByRole('link', { name: /Tripadvisor/i })).toHaveAttribute('href', /tripadvisor\.com\/Restaurant_Review/);
+  await expect(page.getByRole('link', { name: /Tripadvisor/i })).toHaveAttribute('href', 'https://www.tripadvisor.com/Restaurant_Review-g46526-d5099150-Reviews-Guallpa_s_Famous_Pizza-Iselin_New_Jersey.html');
 });
 
 test('menu category switching and cart add flow work', async ({ page }) => {
