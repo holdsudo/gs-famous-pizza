@@ -6,7 +6,12 @@
     <meta name="description" content="G's Famous Pizza (Guallpa's) — Iselin, NJ. Family-owned since 1999. Order famous pies, catch every World Cup match, buy 2 pizzas get 1 plain free.">
     <meta name="theme-color" content="#5c100a">
     <title>G's Famous Pizza | Guallpa's — Iselin, NJ</title>
-    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="icon" type="image/jpeg" href="assets/logo-roundel.jpg">
+    <link rel="apple-touch-icon" href="assets/logo-roundel.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="G's Famous Pizza | Guallpa's — Iselin, NJ">
+    <meta property="og:description" content="Family-owned since 1999. 10-inch personal pan pizzas, specialty pies, wings & fries. Buy 2 pizzas with any toppings, get 1 plain free.">
+    <meta property="og:image" content="assets/brand-banner.jpg">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
@@ -71,7 +76,7 @@
       <section class="section order-section" aria-labelledby="checkout-title">
         <div class="cart-panel reveal" data-cart-panel>
           <div class="panel-heading">
-            <p class="eyebrow">Mock cart</p>
+            <p class="eyebrow">Your cart</p>
             <h2>Your order</h2>
           </div>
           <div class="cart-empty" data-cart-empty>Your cart is ready for its first pie.</div>
@@ -82,7 +87,7 @@
 
         <form class="checkout-panel reveal" id="checkout" aria-labelledby="checkout-title" data-checkout-form>
           <div class="panel-heading">
-            <p class="eyebrow">Checkout mockup</p>
+            <p class="eyebrow">Checkout</p>
             <h2 id="checkout-title">Schedule the handoff.</h2>
           </div>
           <div class="segmented" aria-label="Order type">
@@ -101,7 +106,8 @@
             </select>
           </label>
           <p class="form-error" role="alert" data-form-error></p>
-          <button class="button primary full" type="submit">Place mock order</button>
+          <button class="button primary full" type="submit" data-place-order>Place order</button>
+          <p class="checkout-alt">Prefer delivery apps? <a href="https://www.grubhub.com/restaurant/guallpas-famous-pizza-1522-oak-tree-road-iselin/1754804" target="_blank" rel="noopener">Order on Grubhub</a> or call <a href="tel:+17323215005">(732) 321-5005</a>.</p>
         </form>
       </section>
 
@@ -121,9 +127,9 @@
 
       <section class="section proof-section" id="proof" aria-labelledby="proof-title">
         <div class="section-heading reveal">
-          <p class="eyebrow">The public proof loop</p>
-          <h2 id="proof-title">Follow the shop where customers already look.</h2>
-          <p>These cards link to the supplied social and review assets without inventing ratings or quotes.</p>
+          <p class="eyebrow">Find us everywhere</p>
+          <h2 id="proof-title">Follow the shop. Read the reviews.</h2>
+          <p>Rated 4.2★ on Grubhub — and the watch parties, deals, and fresh pies land on Facebook and Instagram first.</p>
         </div>
         <div class="proof-grid">
           <a class="proof-card reveal" href="https://www.facebook.com/guallpafamouspizza/" target="_blank" rel="noopener"><span>Facebook</span><strong>Local updates</strong></a>
@@ -145,6 +151,30 @@
       </section>
     </main>
 
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="assets/logo-roundel.jpg" alt="Guallpa's chef mascot">
+          <div>
+            <strong>G's Famous Pizza</strong>
+            <span>Guallpa's · Family-owned since 1999</span>
+          </div>
+        </div>
+        <div class="footer-col">
+          <strong>Visit</strong>
+          <span>1522 Oak Tree Road, Iselin, NJ 08830</span>
+          <a href="tel:+17323215005">(732) 321-5005</a>
+          <span>Open 7 days a week</span>
+        </div>
+        <div class="footer-col">
+          <strong>Order &amp; follow</strong>
+          <a href="https://www.grubhub.com/restaurant/guallpas-famous-pizza-1522-oak-tree-road-iselin/1754804" target="_blank" rel="noopener">Grubhub</a>
+          <a href="https://www.facebook.com/guallpafamouspizza/" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.instagram.com/guallpasfamouspizza/" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+    </footer>
+
     <dialog class="item-dialog" data-item-dialog aria-labelledby="dialog-title">
       <form method="dialog" class="dialog-card">
         <button class="icon-button close" value="close" aria-label="Close customizer">×</button>
@@ -154,7 +184,6 @@
 
     <div class="toast" data-toast role="status" aria-live="polite"></div>
 
-    <script src="https://unpkg.com/three@0.165.0/build/three.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

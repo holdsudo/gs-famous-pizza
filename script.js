@@ -186,7 +186,7 @@ function renderCart() {
   const currentTotals = totals();
   cartTotal.innerHTML = `
     <div class="total-row"><span>Subtotal</span><strong>${money.format(currentTotals.subtotal)}</strong></div>
-    <div class="total-row"><span>NJ sales tax mock</span><strong>${money.format(currentTotals.tax)}</strong></div>
+    <div class="total-row"><span>NJ sales tax</span><strong>${money.format(currentTotals.tax)}</strong></div>
     <div class="total-row grand"><span>Total</span><strong>${money.format(currentTotals.total)}</strong></div>
   `;
 }
@@ -275,35 +275,86 @@ document.querySelectorAll('[data-order-type]').forEach((button) => {
   });
 });
 
-checkoutForm.addEventListener('submit', (event) => {
+const ORDER_INBOX = 'https://formsubmit.co/ajax/johntaco11@gmail.com';
+const LIVE_HOSTS = ['github.io'];
+
+function orderSummaryText() {
+  const t = totals();
+  const lines = state.cart.map((item) => {
+    const extras = item.toppings.length ? ` + ${item.toppings.join(', ')}` : '';
+    const notes = item.notes ? ` (${item.notes})` : '';
+    return `${item.quantity}x ${item.name}${extras}${notes} — ${money.format(item.unitPrice * item.quantity)}`;
+  });
+  lines.push(`Subtotal ${money.format(t.subtotal)} | Tax ${money.format(t.tax)} | Total ${money.format(t.total)}`);
+  return lines.join('\n');
+}
+
+async function submitOrder(payload) {
+  const isLive = LIVE_HOSTS.some((h) => window.location.hostname.endsWith(h));
+  if (!isLive) return { delivered: false };
+  const controller = new AbortController();
+  const timer = window.setTimeout(() => controller.abort(), 4000);
+  try {
+    const resp = await fetch(ORDER_INBOX, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(payload),
+      signal: controller.signal
+    });
+    return { delivered: resp.ok };
+  } catch (err) {
+    return { delivered: false };
+  } finally {
+    window.clearTimeout(timer);
+  }
+}
+
+checkoutForm.addEventListener('submit', async (event) => {
   event.preventDefault();
   const data = new FormData(checkoutForm);
   const name = String(data.get('customerName') || '').trim();
   const phone = String(data.get('phone') || '').trim();
   const address = String(data.get('address') || '').trim();
   if (!state.cart.length) {
-    formError.textContent = 'Add an item before placing a mock order.';
+    formError.textContent = 'Add an item before placing your order.';
     return;
   }
   if (!name || !phone) {
-    formError.textContent = 'Add your name and phone to place the mock order.';
+    formError.textContent = 'Add your name and phone to place the order.';
     return;
   }
   if (state.orderType === 'delivery' && !address) {
-    formError.textContent = 'Add a delivery address for delivery mock mode.';
+    formError.textContent = 'Add a delivery address so we know where the pies go.';
     return;
   }
   formError.textContent = '';
+  const placeButton = checkoutForm.querySelector('[data-place-order]');
+  if (placeButton) {
+    placeButton.disabled = true;
+    placeButton.textContent = 'Placing order…';
+  }
   const confirmation = `GFP-${Math.floor(1000 + Math.random() * 9000)}`;
+  const scheduledTime = data.get('scheduledTime');
+  await submitOrder({
+    _subject: `New order ${confirmation} — G's Famous Pizza site`,
+    order: confirmation,
+    type: state.orderType,
+    name,
+    phone,
+    address: state.orderType === 'delivery' ? address : 'pickup',
+    time: scheduledTime,
+    items: orderSummaryText()
+  });
   checkoutForm.innerHTML = `
     <div class="confirmation">
-      <p class="eyebrow">Confirmed mock order</p>
+      <p class="eyebrow">Order confirmed</p>
       <h2>Order received</h2>
-      <p>Your mock order number is <strong>${confirmation}</strong>. Estimated ${state.orderType === 'pickup' ? 'pickup' : 'delivery'} time: ${data.get('scheduledTime')}.</p>
+      <p>Thanks ${name.split(' ')[0]} — your order number is <strong>${confirmation}</strong>. Estimated ${state.orderType === 'pickup' ? 'pickup' : 'delivery'} time: ${scheduledTime}.</p>
+      <p>Questions about your order? Call the shop at <a href="tel:+17323215005"><strong>(732) 321-5005</strong></a>.</p>
       <a class="button primary" href="https://www.instagram.com/guallpasfamouspizza/" target="_blank" rel="noopener">Follow on Instagram</a>
     </div>
   `;
-  showToast(`Mock order ${confirmation} confirmed`);
+  showToast(`Order ${confirmation} received`);
 });
 
 const observer = new IntersectionObserver((entries) => {
