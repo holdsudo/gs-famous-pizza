@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Guallpa's Famous Pizza in Iselin, NJ, presented as a premium mock ordering platform.">
+    <meta name="theme-color" content="#100d0b">
+    <title>Guallpa's Famous Pizza | Luxury Ordering OS</title>
+    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <a class="brand" href="#top" aria-label="Guallpa's Famous Pizza home">
+        <span class="brand-mark">G</span>
+        <span>Guallpa's Famous Pizza</span>
+      </a>
+      <nav class="primary-nav" aria-label="Primary navigation">
+        <a href="#menu">Menu</a>
+        <a href="#platform">Order OS</a>
+        <a href="#proof">Reviews</a>
+        <a href="#visit">Visit</a>
+      </nav>
+      <button class="nav-order" type="button" data-scroll-order>Start order</button>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <canvas id="hero-scene" class="hero-scene" aria-label="Animated premium pizza presentation"></canvas>
+        <div class="hero-content reveal">
+          <p class="eyebrow">Iselin, New Jersey</p>
+          <h1 id="hero-title">Famous pizza, engineered to order.</h1>
+          <p class="hero-copy">A premium mock ordering platform for Guallpa's Famous Pizza, built around fast pickup, rich menu browsing, and a polished cart experience.</p>
+          <div class="hero-actions">
+            <button class="button primary" type="button" data-scroll-order>Build my order</button>
+            <a class="button secondary" href="#menu">Explore menu</a>
+          </div>
+        </div>
+        <aside class="hero-order-card reveal" aria-label="Live order preview">
+          <div class="card-topline">
+            <span>Live order preview</span>
+            <span class="live-dot">Kitchen open</span>
+          </div>
+          <div class="preview-line"><strong>Famous Cheese Pie</strong><span>Large</span></div>
+          <div class="preview-line"><strong>Half Pepperoni</strong><span>Extra crisp</span></div>
+          <div class="preview-line"><strong>Pickup ETA</strong><span>18-24 min</span></div>
+        </aside>
+      </section>
+
+      <section class="section platform-strip" id="platform" aria-label="Ordering platform highlights">
+        <div class="strip-item reveal"><strong>Pick your lane</strong><span>Pickup or delivery mock flow</span></div>
+        <div class="strip-item reveal"><strong>Customize fast</strong><span>Size, toppings, notes, quantity</span></div>
+        <div class="strip-item reveal"><strong>Confirm clean</strong><span>Receipt, ETA, social links</span></div>
+      </section>
+
+      <section class="section menu-section" id="menu" aria-labelledby="menu-title">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Signature menu</p>
+          <h2 id="menu-title">Build the order like a product launch.</h2>
+          <p>Choose a category, customize an item, and watch the cart update instantly.</p>
+        </div>
+        <div class="menu-tabs reveal" role="tablist" aria-label="Menu categories" data-category-tabs></div>
+        <div class="menu-grid" data-menu-grid></div>
+      </section>
+
+      <section class="section order-section" aria-labelledby="checkout-title">
+        <div class="cart-panel reveal" data-cart-panel>
+          <div class="panel-heading">
+            <p class="eyebrow">Mock cart</p>
+            <h2>Your order</h2>
+          </div>
+          <div class="cart-empty" data-cart-empty>Your cart is ready for its first pie.</div>
+          <div class="cart-list" data-cart-list></div>
+          <div class="cart-total" data-cart-total hidden></div>
+          <button class="button primary full" type="button" data-open-checkout>Checkout</button>
+        </div>
+
+        <form class="checkout-panel reveal" id="checkout" aria-labelledby="checkout-title" data-checkout-form>
+          <div class="panel-heading">
+            <p class="eyebrow">Checkout mockup</p>
+            <h2 id="checkout-title">Schedule the handoff.</h2>
+          </div>
+          <div class="segmented" aria-label="Order type">
+            <button class="is-active" type="button" data-order-type="pickup">Pickup</button>
+            <button type="button" data-order-type="delivery">Delivery</button>
+          </div>
+          <label>Name <input name="customerName" autocomplete="name"></label>
+          <label>Phone <input name="phone" autocomplete="tel"></label>
+          <label class="delivery-field" hidden>Delivery address <input name="address" autocomplete="street-address"></label>
+          <label>Time
+            <select name="scheduledTime">
+              <option>ASAP - 18 to 24 min</option>
+              <option>30 minutes</option>
+              <option>45 minutes</option>
+              <option>Tonight at 7:00</option>
+            </select>
+          </label>
+          <p class="form-error" role="alert" data-form-error></p>
+          <button class="button primary full" type="submit">Place mock order</button>
+        </form>
+      </section>
+
+      <section class="section proof-section" id="proof" aria-labelledby="proof-title">
+        <div class="section-heading reveal">
+          <p class="eyebrow">The public proof loop</p>
+          <h2 id="proof-title">Follow the shop where customers already look.</h2>
+          <p>These cards link to the supplied social and review assets without inventing ratings or quotes.</p>
+        </div>
+        <div class="proof-grid">
+          <a class="proof-card reveal" href="https://www.facebook.com/guallpafamouspizza/" target="_blank" rel="noopener"><span>Facebook</span><strong>Local updates</strong></a>
+          <a class="proof-card reveal" href="https://www.instagram.com/guallpasfamouspizza/" target="_blank" rel="noopener"><span>Instagram</span><strong>Food gallery</strong></a>
+          <a class="proof-card reveal" href="https://www.yelp.com/biz/guallpas-famous-pizza-iselin" target="_blank" rel="noopener"><span>Yelp</span><strong>Review discovery</strong></a>
+          <a class="proof-card reveal" href="https://www.tripadvisor.com/Restaurant_Review-g46526-d5099150-Reviews-Guallpa_s_Famous_Pizza-Iselin_New_Jersey.html" target="_blank" rel="noopener"><span>Tripadvisor</span><strong>Traveler proof</strong></a>
+        </div>
+      </section>
+
+      <section class="section visit-section" id="visit" aria-labelledby="visit-title">
+        <div class="visit-copy reveal">
+          <p class="eyebrow">Visit</p>
+          <h2 id="visit-title">A modern front door for a famous Iselin pizza stop.</h2>
+          <p>Use this mock platform as the visual standard for online ordering, social trust, and premium local presence.</p>
+          <button class="button primary" type="button" data-scroll-order>Start another order</button>
+        </div>
+      </section>
+    </main>
+
+    <dialog class="item-dialog" data-item-dialog aria-labelledby="dialog-title">
+      <form method="dialog" class="dialog-card">
+        <button class="icon-button close" value="close" aria-label="Close customizer">×</button>
+        <div data-dialog-content></div>
+      </form>
+    </dialog>
+
+    <div class="toast" data-toast role="status" aria-live="polite"></div>
+
+    <script src="https://unpkg.com/three@0.165.0/build/three.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
