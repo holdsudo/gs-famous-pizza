@@ -12,12 +12,12 @@ test('renders premium hero and required proof links', async ({ page }) => {
 
 test('menu category switching and cart add flow work', async ({ page }) => {
   await page.goto('/');
-  await page.getByRole('button', { name: /Subs/i }).click();
+  await page.getByRole('tab', { name: /Subs/i }).click();
   await expect(page.getByRole('heading', { name: /Chicken Parm Hero/i })).toBeVisible();
   await page.getByRole('button', { name: /Customize Chicken Parm Hero/i }).click();
   await page.getByRole('button', { name: /Add to order/i }).click();
   await expect(page.getByText(/Chicken Parm Hero/i).last()).toBeVisible();
-  await expect(page.getByText(/\$11\.50/)).toBeVisible();
+  await expect(page.getByText(/\$11\.50/).last()).toBeVisible();
 });
 
 test('checkout validates required fields and creates confirmation', async ({ page }) => {
