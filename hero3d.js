@@ -29,7 +29,7 @@ function start() {
   scene.add(group);
 
   const loader = new THREE.TextureLoader();
-  const posterTex = loader.load('assets/promo-worldcup.jpg', () => {
+  const posterTex = loader.load((window.SITE && window.SITE.hero.poster) || 'assets/promo-worldcup.jpg', () => {
     stage.classList.add('is-3d');
     renderer.render(scene, camera);
   });

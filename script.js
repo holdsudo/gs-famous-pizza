@@ -1,53 +1,5 @@
-const categories = [
-  { id: 'pan', label: 'Personal Pan' },
-  { id: 'specialty', label: 'Specialty Pies' },
-  { id: 'large', label: '16\" Large Pan' },
-  { id: 'apps', label: 'Appetizers' },
-  { id: 'drinks', label: 'Beverages' }
-];
-
-const menuItems = [
-  { id: '10-plain-pan-pizza', photo: 'assets/food-cheese.jpg', category: 'pan', name: '10\" Plain Pan Pizza', description: 'Shredded cheese. Add toppings for an additional charge.', basePrice: 9.75, sizes: ['One size'], toppings: ['Pepperoni', 'Sausage', 'Bacon', 'Ham', 'Grilled chicken', 'Mushrooms', 'Green peppers', 'Hot peppers', 'Onions', 'Black olives', 'Broccoli', 'Spinach', 'Pineapple', 'Garlic', 'Tomato', 'Extra cheese'], popular: true },
-  { id: 'green-pepper-pizza', photo: '', category: 'pan', name: 'Green Pepper Pizza', description: 'Freshly sliced green peppers.', basePrice: 10.75, sizes: ['One size'], toppings: ['Pepperoni', 'Sausage', 'Bacon', 'Ham', 'Grilled chicken', 'Mushrooms', 'Green peppers', 'Hot peppers', 'Onions', 'Black olives', 'Broccoli', 'Spinach', 'Pineapple', 'Garlic', 'Tomato', 'Extra cheese'], popular: true },
-  { id: 'hot-pepper-pineapple-pizza', photo: '', category: 'pan', name: 'Hot Pepper & Pineapple Pizza', description: 'Freshly sliced hot peppers & pineapple.', basePrice: 11.75, sizes: ['One size'], toppings: ['Pepperoni', 'Sausage', 'Bacon', 'Ham', 'Grilled chicken', 'Mushrooms', 'Green peppers', 'Hot peppers', 'Onions', 'Black olives', 'Broccoli', 'Spinach', 'Pineapple', 'Garlic', 'Tomato', 'Extra cheese'], popular: true },
-  { id: 'mushroom-pizza', photo: '', category: 'pan', name: 'Mushroom Pizza', description: 'Freshly sliced mushrooms.', basePrice: 9.75, sizes: ['One size'], toppings: ['Pepperoni', 'Sausage', 'Bacon', 'Ham', 'Grilled chicken', 'Mushrooms', 'Green peppers', 'Hot peppers', 'Onions', 'Black olives', 'Broccoli', 'Spinach', 'Pineapple', 'Garlic', 'Tomato', 'Extra cheese'] },
-  { id: 'cauliflower-pizza', photo: '', category: 'pan', name: 'Cauliflower Pizza', description: 'Freshly chopped cauliflower.', basePrice: 9.75, sizes: ['One size'], toppings: ['Pepperoni', 'Sausage', 'Bacon', 'Ham', 'Grilled chicken', 'Mushrooms', 'Green peppers', 'Hot peppers', 'Onions', 'Black olives', 'Broccoli', 'Spinach', 'Pineapple', 'Garlic', 'Tomato', 'Extra cheese'] },
-  { id: 'pepperoni-pizza', photo: '', category: 'pan', name: 'Pepperoni Pizza', description: 'Sliced pepperoni.', basePrice: 10.75, sizes: ['One size'], toppings: ['Pepperoni', 'Sausage', 'Bacon', 'Ham', 'Grilled chicken', 'Mushrooms', 'Green peppers', 'Hot peppers', 'Onions', 'Black olives', 'Broccoli', 'Spinach', 'Pineapple', 'Garlic', 'Tomato', 'Extra cheese'] },
-  { id: 'bacon-pizza', photo: '', category: 'pan', name: 'Bacon Pizza', description: 'Strips of smoked bacon.', basePrice: 10.75, sizes: ['One size'], toppings: ['Pepperoni', 'Sausage', 'Bacon', 'Ham', 'Grilled chicken', 'Mushrooms', 'Green peppers', 'Hot peppers', 'Onions', 'Black olives', 'Broccoli', 'Spinach', 'Pineapple', 'Garlic', 'Tomato', 'Extra cheese'] },
-  { id: 'grilled-chicken-pizza', photo: '', category: 'pan', name: 'Grilled Chicken Pizza', description: 'Fresh-grilled chicken made with 100% Halal chicken', basePrice: 10.75, sizes: ['One size'], toppings: ['Pepperoni', 'Sausage', 'Bacon', 'Ham', 'Grilled chicken', 'Mushrooms', 'Green peppers', 'Hot peppers', 'Onions', 'Black olives', 'Broccoli', 'Spinach', 'Pineapple', 'Garlic', 'Tomato', 'Extra cheese'] },
-  { id: 'hot-pepper-pizza', photo: '', category: 'pan', name: 'Hot Pepper Pizza', description: 'Fresh jalapenos.', basePrice: 9.75, sizes: ['One size'], toppings: ['Pepperoni', 'Sausage', 'Bacon', 'Ham', 'Grilled chicken', 'Mushrooms', 'Green peppers', 'Hot peppers', 'Onions', 'Black olives', 'Broccoli', 'Spinach', 'Pineapple', 'Garlic', 'Tomato', 'Extra cheese'], popular: true },
-  { id: 'hot-pepper-onion-pizza', photo: 'assets/food-onion.jpg', category: 'pan', name: 'Hot Pepper & Onion Pizza', description: 'Freshly sliced hot peppers & onions.', basePrice: 10.75, sizes: ['One size'], toppings: ['Pepperoni', 'Sausage', 'Bacon', 'Ham', 'Grilled chicken', 'Mushrooms', 'Green peppers', 'Hot peppers', 'Onions', 'Black olives', 'Broccoli', 'Spinach', 'Pineapple', 'Garlic', 'Tomato', 'Extra cheese'], popular: true },
-  { id: 'broccoli-pizza', photo: '', category: 'pan', name: 'Broccoli Pizza', description: 'Freshly chopped broccoli.', basePrice: 9.75, sizes: ['One size'], toppings: ['Pepperoni', 'Sausage', 'Bacon', 'Ham', 'Grilled chicken', 'Mushrooms', 'Green peppers', 'Hot peppers', 'Onions', 'Black olives', 'Broccoli', 'Spinach', 'Pineapple', 'Garlic', 'Tomato', 'Extra cheese'] },
-  { id: 'pineapple-pizza', photo: '', category: 'pan', name: 'Pineapple Pizza', description: 'Freshly diced pineapple.', basePrice: 9.75, sizes: ['One size'], toppings: ['Pepperoni', 'Sausage', 'Bacon', 'Ham', 'Grilled chicken', 'Mushrooms', 'Green peppers', 'Hot peppers', 'Onions', 'Black olives', 'Broccoli', 'Spinach', 'Pineapple', 'Garlic', 'Tomato', 'Extra cheese'] },
-  { id: 'black-olive-pizza', photo: 'assets/food-blackolive.jpg', category: 'pan', name: 'Black Olive Pizza', description: 'Freshly sliced black olive.', basePrice: 9.75, sizes: ['One size'], toppings: ['Pepperoni', 'Sausage', 'Bacon', 'Ham', 'Grilled chicken', 'Mushrooms', 'Green peppers', 'Hot peppers', 'Onions', 'Black olives', 'Broccoli', 'Spinach', 'Pineapple', 'Garlic', 'Tomato', 'Extra cheese'] },
-  { id: 'sausage-pizza', photo: '', category: 'pan', name: 'Sausage Pizza', description: 'Sweet Italian sausage.', basePrice: 10.75, sizes: ['One size'], toppings: ['Pepperoni', 'Sausage', 'Bacon', 'Ham', 'Grilled chicken', 'Mushrooms', 'Green peppers', 'Hot peppers', 'Onions', 'Black olives', 'Broccoli', 'Spinach', 'Pineapple', 'Garlic', 'Tomato', 'Extra cheese'] },
-  { id: 'white-pizza', photo: '', category: 'pan', name: 'White Pizza', description: 'Ricotta & shredded cheese.', basePrice: 10.75, sizes: ['One size'], toppings: ['Pepperoni', 'Sausage', 'Bacon', 'Ham', 'Grilled chicken', 'Mushrooms', 'Green peppers', 'Hot peppers', 'Onions', 'Black olives', 'Broccoli', 'Spinach', 'Pineapple', 'Garlic', 'Tomato', 'Extra cheese'] },
-  { id: 'hamburger-pizza', photo: '', category: 'pan', name: 'Hamburger Pizza', description: 'Freshly chopped hamburger.', basePrice: 10.75, sizes: ['One size'], toppings: ['Pepperoni', 'Sausage', 'Bacon', 'Ham', 'Grilled chicken', 'Mushrooms', 'Green peppers', 'Hot peppers', 'Onions', 'Black olives', 'Broccoli', 'Spinach', 'Pineapple', 'Garlic', 'Tomato', 'Extra cheese'] },
-  { id: 'onion-pizza', photo: '', category: 'pan', name: 'Onion Pizza', description: 'Freshly sliced onions.', basePrice: 9.75, sizes: ['One size'], toppings: ['Pepperoni', 'Sausage', 'Bacon', 'Ham', 'Grilled chicken', 'Mushrooms', 'Green peppers', 'Hot peppers', 'Onions', 'Black olives', 'Broccoli', 'Spinach', 'Pineapple', 'Garlic', 'Tomato', 'Extra cheese'] },
-  { id: 'onion-pepper-pizza', photo: 'assets/food-greenpepper.jpg', category: 'pan', name: 'Onion & Pepper Pizza', description: 'Freshly sliced onions & green peppers.', basePrice: 10.75, sizes: ['One size'], toppings: ['Pepperoni', 'Sausage', 'Bacon', 'Ham', 'Grilled chicken', 'Mushrooms', 'Green peppers', 'Hot peppers', 'Onions', 'Black olives', 'Broccoli', 'Spinach', 'Pineapple', 'Garlic', 'Tomato', 'Extra cheese'] },
-  { id: 'spinach-pizza', photo: '', category: 'pan', name: 'Spinach Pizza', description: 'Freshly chopped spinach.', basePrice: 9.75, sizes: ['One size'], toppings: ['Pepperoni', 'Sausage', 'Bacon', 'Ham', 'Grilled chicken', 'Mushrooms', 'Green peppers', 'Hot peppers', 'Onions', 'Black olives', 'Broccoli', 'Spinach', 'Pineapple', 'Garlic', 'Tomato', 'Extra cheese'] },
-  { id: 'garlic-pizza', photo: '', category: 'pan', name: 'Garlic Pizza', description: 'Freshly chopped garlic.', basePrice: 9.75, sizes: ['One size'], toppings: ['Pepperoni', 'Sausage', 'Bacon', 'Ham', 'Grilled chicken', 'Mushrooms', 'Green peppers', 'Hot peppers', 'Onions', 'Black olives', 'Broccoli', 'Spinach', 'Pineapple', 'Garlic', 'Tomato', 'Extra cheese'] },
-  { id: 'tomato-pizza', photo: 'assets/food-tomato.jpg', category: 'pan', name: 'Tomato Pizza', description: 'Freshly sliced tomato.', basePrice: 9.75, sizes: ['One size'], toppings: ['Pepperoni', 'Sausage', 'Bacon', 'Ham', 'Grilled chicken', 'Mushrooms', 'Green peppers', 'Hot peppers', 'Onions', 'Black olives', 'Broccoli', 'Spinach', 'Pineapple', 'Garlic', 'Tomato', 'Extra cheese'] },
-  { id: 'ham-pizza', photo: '', category: 'pan', name: 'Ham Pizza', description: 'Freshly sliced ham.', basePrice: 10.75, sizes: ['One size'], toppings: ['Pepperoni', 'Sausage', 'Bacon', 'Ham', 'Grilled chicken', 'Mushrooms', 'Green peppers', 'Hot peppers', 'Onions', 'Black olives', 'Broccoli', 'Spinach', 'Pineapple', 'Garlic', 'Tomato', 'Extra cheese'] },
-  { id: 'hawaiian-pizza', photo: 'assets/food-hawaiian.jpg', category: 'pan', name: 'Hawaiian Pizza', description: 'Freshly sliced ham & pineapple.', basePrice: 11.75, sizes: ['One size'], toppings: ['Pepperoni', 'Sausage', 'Bacon', 'Ham', 'Grilled chicken', 'Mushrooms', 'Green peppers', 'Hot peppers', 'Onions', 'Black olives', 'Broccoli', 'Spinach', 'Pineapple', 'Garlic', 'Tomato', 'Extra cheese'] },
-  { id: 'chicken-tikka-masala-pizza', photo: '', category: 'pan', name: 'Chicken Tikka Masala Pizza', description: 'Topped with our masala seasoning made with 100% Halal Chicken.', basePrice: 12.75, sizes: ['One size'], toppings: ['Pepperoni', 'Sausage', 'Bacon', 'Ham', 'Grilled chicken', 'Mushrooms', 'Green peppers', 'Hot peppers', 'Onions', 'Black olives', 'Broccoli', 'Spinach', 'Pineapple', 'Garlic', 'Tomato', 'Extra cheese'] },
-  { id: 'paneer-tikka-masala-pizza', photo: '', category: 'pan', name: 'Paneer Tikka Masala Pizza', description: 'Topped with our masala seasoning, cubes of paneer, and shredded cheese. (Vegetarian)', basePrice: 12.75, sizes: ['One size'], toppings: ['Pepperoni', 'Sausage', 'Bacon', 'Ham', 'Grilled chicken', 'Mushrooms', 'Green peppers', 'Hot peppers', 'Onions', 'Black olives', 'Broccoli', 'Spinach', 'Pineapple', 'Garlic', 'Tomato', 'Extra cheese'] },
-  { id: 'buffalo-chicken-bacon-ranch-pizza', photo: '', category: 'pan', name: 'Buffalo Chicken Bacon Ranch Pizza', description: 'Topped with spicy buffalo chicken, chopped smoky bacon, shredded cheese and finished with ranch dressing.', basePrice: 13.75, sizes: ['One size'], toppings: ['Pepperoni', 'Sausage', 'Bacon', 'Ham', 'Grilled chicken', 'Mushrooms', 'Green peppers', 'Hot peppers', 'Onions', 'Black olives', 'Broccoli', 'Spinach', 'Pineapple', 'Garlic', 'Tomato', 'Extra cheese'] },
-  { id: '10-plain-cauliflower-crust', photo: '', category: 'pan', name: '10\'\' Plain Cauliflower Crust', description: 'Gluten free option.', basePrice: 16.00, sizes: ['One size'], toppings: [] },
-  { id: 'guallpa-s-veggie-special-pizza', photo: '', category: 'specialty', name: 'Guallpa\'s Veggie Special Pizza', description: 'Fresh spinach, broccoli, black olives, onions, mushrooms, green peppers & shredded cheese.', basePrice: 12.75, sizes: ['One size'], toppings: ['Pepperoni', 'Sausage', 'Bacon', 'Ham', 'Grilled chicken', 'Mushrooms', 'Green peppers', 'Hot peppers', 'Onions', 'Black olives', 'Broccoli', 'Spinach', 'Pineapple', 'Garlic', 'Tomato', 'Extra cheese'], popular: true },
-  { id: 'guallpa-s-famous-special-pizza', photo: '', category: 'specialty', name: 'Guallpa\'s Famous Special Pizza', description: 'pepperoni, sausage, mushrooms, black olives, onions, green peppers & shredded cheese.', basePrice: 13.75, sizes: ['One size'], toppings: ['Pepperoni', 'Sausage', 'Bacon', 'Ham', 'Grilled chicken', 'Mushrooms', 'Green peppers', 'Hot peppers', 'Onions', 'Black olives', 'Broccoli', 'Spinach', 'Pineapple', 'Garlic', 'Tomato', 'Extra cheese'] },
-  { id: 'guallpa-s-meat-lovers-special-pizza', photo: '', category: 'specialty', name: 'Guallpa\'s Meat Lovers Special Pizza', description: 'Pepperoni, sausage, bacon, ham & shredded cheese.', basePrice: 14.75, sizes: ['One size'], toppings: ['Pepperoni', 'Sausage', 'Bacon', 'Ham', 'Grilled chicken', 'Mushrooms', 'Green peppers', 'Hot peppers', 'Onions', 'Black olives', 'Broccoli', 'Spinach', 'Pineapple', 'Garlic', 'Tomato', 'Extra cheese'] },
-  { id: 'buffalo-chicken-pizza', photo: '', category: 'specialty', name: 'Buffalo Chicken Pizza', description: 'Grilled chicken & Buffalo sauce made 100% halal chicken.', basePrice: 12.75, sizes: ['One size'], toppings: ['Pepperoni', 'Sausage', 'Bacon', 'Ham', 'Grilled chicken', 'Mushrooms', 'Green peppers', 'Hot peppers', 'Onions', 'Black olives', 'Broccoli', 'Spinach', 'Pineapple', 'Garlic', 'Tomato', 'Extra cheese'] },
-  { id: 'bbq-chicken-pizza', photo: '', category: 'specialty', name: 'BBQ Chicken Pizza', description: 'Grilled chicken & BBQ sauce made with 100% halal chicken.', basePrice: 12.75, sizes: ['One size'], toppings: ['Pepperoni', 'Sausage', 'Bacon', 'Ham', 'Grilled chicken', 'Mushrooms', 'Green peppers', 'Hot peppers', 'Onions', 'Black olives', 'Broccoli', 'Spinach', 'Pineapple', 'Garlic', 'Tomato', 'Extra cheese'] },
-  { id: '16-plain-pan-pizza', photo: 'assets/food-cheese.jpg', category: 'large', name: '16\" Plain Pan Pizza', description: 'Shredded cheese.', basePrice: 21.75, sizes: ['One size'], toppings: ['Pepperoni', 'Sausage', 'Bacon', 'Ham', 'Grilled chicken', 'Mushrooms', 'Green peppers', 'Hot peppers', 'Onions', 'Black olives', 'Broccoli', 'Spinach', 'Pineapple', 'Garlic', 'Tomato', 'Extra cheese'] },
-  { id: '16-guallpa-s-famous-special-pizza', photo: '', category: 'large', name: '16\" Guallpa\'s Famous Special Pizza', description: 'Beef, pepperoni, sausage, mushrooms, black olives, onions, green peppers & shredded cheese.', basePrice: 26.75, sizes: ['One size'], toppings: ['Pepperoni', 'Sausage', 'Bacon', 'Ham', 'Grilled chicken', 'Mushrooms', 'Green peppers', 'Hot peppers', 'Onions', 'Black olives', 'Broccoli', 'Spinach', 'Pineapple', 'Garlic', 'Tomato', 'Extra cheese'] },
-  { id: '16-guallpa-s-veggie-special', photo: '', category: 'large', name: '16\" Guallpa\'s Veggie Special', description: 'Fresh spinach, broccoli, black olives, onions, mushrooms, green peppers & shredded cheese.', basePrice: 25.75, sizes: ['One size'], toppings: ['Pepperoni', 'Sausage', 'Bacon', 'Ham', 'Grilled chicken', 'Mushrooms', 'Green peppers', 'Hot peppers', 'Onions', 'Black olives', 'Broccoli', 'Spinach', 'Pineapple', 'Garlic', 'Tomato', 'Extra cheese'] },
-  { id: 'buffalo-wings', photo: '', category: 'apps', name: 'Buffalo Wings', description: 'Cooked wing of a chicken coated in sauce or seasoning.', basePrice: 10.75, sizes: ['One size'], toppings: [] },
-  { id: 'bbq-wings', photo: '', category: 'apps', name: 'BBQ Wings', description: 'Cooked wing of a chicken coated in sauce or seasoning.', basePrice: 10.75, sizes: ['One size'], toppings: [] },
-  { id: 'french-fries', photo: '', category: 'apps', name: 'French Fries', description: 'Cooked in oil.', basePrice: 5.75, sizes: ['One size'], toppings: [] },
-  { id: 'soda-cans', photo: '', category: 'drinks', name: 'Soda Cans', description: 'Ice cold.', basePrice: 2.50, sizes: ['One size'], toppings: [] },
-  { id: '2-liter-soda', photo: '', category: 'drinks', name: '2 Liter Soda', description: 'Ice cold.', basePrice: 6.50, sizes: ['One size'], toppings: [] }
-];
+const categories = SITE.menu.categories;
+const menuItems = SITE.menu.items;
 
 const state = {
   category: 'pan',
@@ -55,6 +7,65 @@ const state = {
   orderType: 'pickup',
   activeItem: null
 };
+
+
+function fillSlots() {
+  document.title = SITE.meta.title;
+  document.querySelectorAll('[data-slot]').forEach((el) => {
+    const path = el.dataset.slot.split('.');
+    let value = SITE;
+    path.forEach((k) => { value = value ? value[k] : undefined; });
+    if (value === undefined) return;
+    if (el.tagName === 'IMG') el.src = value;
+    else if (el.tagName === 'A' && /^(https?:|tel:)/.test(value)) el.href = value;
+    else el.textContent = value;
+  });
+
+  const h1 = document.querySelector('#hero-title');
+  h1.innerHTML = `${SITE.hero.h1[0]}<br><em></em>`;
+  h1.querySelector('em').textContent = SITE.hero.h1[1];
+
+  const facts = document.querySelector('.hero-facts');
+  facts.innerHTML = SITE.hero.facts.map(() => '<span></span>').join('');
+  [...facts.children].forEach((el, i) => { el.textContent = SITE.hero.facts[i]; });
+
+  const track = document.querySelector('.ticker-track');
+  const line = SITE.ticker.concat(SITE.ticker);
+  track.innerHTML = line.map(() => '<span></span><i>\u2605</i>').join('');
+  track.querySelectorAll('span').forEach((el, i) => { el.textContent = line[i]; });
+
+  const gallery = document.querySelector('.gallery-grid');
+  gallery.innerHTML = SITE.gallery.map((g) => `
+    <figure class="gallery-card${g.tall ? ' tall' : ''} reveal is-visible"><img loading="lazy"><figcaption></figcaption></figure>
+  `).join('');
+  [...gallery.querySelectorAll('figure')].forEach((fig, i) => {
+    fig.querySelector('img').src = SITE.gallery[i].src;
+    fig.querySelector('img').alt = SITE.gallery[i].alt;
+    fig.querySelector('figcaption').textContent = SITE.gallery[i].caption;
+  });
+
+  const proof = document.querySelector('.proof-grid');
+  proof.innerHTML = SITE.proofCards.map(() => `
+    <a class="proof-card reveal is-visible" target="_blank" rel="noopener"><span></span><strong></strong></a>
+  `).join('');
+  [...proof.children].forEach((card, i) => {
+    const def = SITE.proofCards[i];
+    card.href = SITE.links[def.key];
+    card.querySelector('span').textContent = def.label;
+    card.querySelector('strong').textContent = def.strong;
+  });
+
+  document.querySelectorAll('[data-slot-phone]').forEach((el) => { el.href = SITE.contact.phoneHref; });
+  document.querySelector('.brand-mark img').src = SITE.brand.logoRoundel;
+
+  const band = document.querySelector('.visit-band');
+  if (band) band.style.backgroundImage = `linear-gradient(90deg, rgba(22,8,5,.93) 0 34%, rgba(22,8,5,.55) 62%, rgba(43,10,6,.35)), url('${SITE.visit.photo}')`;
+
+  const theme = SITE.theme || {};
+  const varMap = { char: '--char', char2: '--char-2', maroon: '--maroon', maroonDeep: '--maroon-deep', red: '--red', redHot: '--red-hot', gold: '--gold', yellow: '--yellow', milk: '--milk' };
+  Object.keys(theme).forEach((k) => { if (varMap[k]) document.documentElement.style.setProperty(varMap[k], theme[k]); });
+}
+fillSlots();
 
 const money = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' });
 const tabsEl = document.querySelector('[data-category-tabs]');
@@ -139,7 +150,7 @@ function renderCustomizer() {
 }
 
 function itemUnitPrice(item) {
-  return item.basePrice + item.selectedToppings.length * 1.00;
+  return item.basePrice + item.selectedToppings.length * SITE.order.toppingPrice;
 }
 
 function addActiveToCart() {
@@ -161,7 +172,7 @@ function addActiveToCart() {
 
 function totals() {
   const subtotal = state.cart.reduce((sum, item) => sum + item.unitPrice * item.quantity, 0);
-  const tax = subtotal * 0.06625;
+  const tax = subtotal * SITE.order.taxRate;
   return { subtotal, tax, total: subtotal + tax };
 }
 
@@ -277,8 +288,8 @@ document.querySelectorAll('[data-order-type]').forEach((button) => {
   });
 });
 
-const ORDER_INBOX = 'https://formsubmit.co/ajax/johntaco11@gmail.com';
-const LIVE_HOSTS = ['github.io', 'joe-miz.com'];
+const ORDER_INBOX = SITE.order.inbox;
+const LIVE_HOSTS = SITE.order.liveHosts;
 
 function orderSummaryText() {
   const t = totals();
@@ -335,10 +346,10 @@ checkoutForm.addEventListener('submit', async (event) => {
     placeButton.disabled = true;
     placeButton.textContent = 'Placing order…';
   }
-  const confirmation = `GFP-${Math.floor(1000 + Math.random() * 9000)}`;
+  const confirmation = `${SITE.order.orderPrefix}-${Math.floor(1000 + Math.random() * 9000)}`;
   const scheduledTime = data.get('scheduledTime');
   await submitOrder({
-    _subject: `New order ${confirmation} — G's Famous Pizza site`,
+    _subject: `New order ${confirmation} — ${SITE.brand.name} site`,
     order: confirmation,
     type: state.orderType,
     name,
@@ -352,8 +363,8 @@ checkoutForm.addEventListener('submit', async (event) => {
       <p class="eyebrow">Order confirmed</p>
       <h2>Order received</h2>
       <p>Thanks ${name.split(' ')[0]} — your order number is <strong>${confirmation}</strong>. Estimated ${state.orderType === 'pickup' ? 'pickup' : 'delivery'} time: ${scheduledTime}.</p>
-      <p>Questions about your order? Call the shop at <a href="tel:+17323215005"><strong>(732) 321-5005</strong></a>.</p>
-      <a class="button primary" href="https://www.instagram.com/guallpasfamouspizza/" target="_blank" rel="noopener">Follow on Instagram</a>
+      <p>Questions about your order? Call the shop at <a href="${SITE.contact.phoneHref}"><strong>${SITE.contact.phone}</strong></a>.</p>
+      <a class="button primary" href="${SITE.links.instagram}" target="_blank" rel="noopener">Follow on Instagram</a>
     </div>
   `;
   showToast(`Order ${confirmation} received`);

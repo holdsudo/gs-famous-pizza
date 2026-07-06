@@ -21,7 +21,7 @@
     <header class="site-header" data-header>
       <a class="brand" href="#top" aria-label="Guallpa's Famous Pizza home">
         <span class="brand-mark"><img src="assets/logo-roundel.jpg" alt=""></span>
-        <span class="brand-name">G's Famous Pizza</span>
+        <span class="brand-name" data-slot="brand.name">G's Famous Pizza</span>
       </a>
       <nav class="primary-nav" aria-label="Primary navigation">
         <a href="#menu">Menu</a>
@@ -36,10 +36,10 @@
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-inner">
           <div class="hero-content reveal">
-            <img class="hero-logo" src="assets/logo-lockup.jpg" alt="G's Famous Pizza — Guallpa's">
-            <p class="eyebrow">Oak Tree Road · Iselin, NJ · Since 1999</p>
+            <img class="hero-logo" data-slot="brand.logoLockup" src="assets/logo-lockup.jpg" alt="Logo">
+            <p class="eyebrow" data-slot="hero.eyebrow">Oak Tree Road · Iselin, NJ · Since 1999</p>
             <h1 id="hero-title">You've tried the rest.<br><em>Now try the best.</em></h1>
-            <p class="hero-copy">Ten-inch personal pan pies out of the deck oven, halal chicken options, and every match live on the big screens. Family-run by the Guallpa brothers for 27 years.</p>
+            <p class="hero-copy" data-slot="hero.copy"></p>
             <div class="hero-actions">
               <button class="button primary" type="button" data-scroll-order>Start my order</button>
               <a class="button secondary" href="#menu">See the menu</a>
@@ -47,33 +47,22 @@
             <p class="hero-facts"><span>4.2★ on Grubhub</span><span>Top 3 Pizza Spot · BusinessRate 2026</span></p>
           </div>
           <figure class="hero-stage reveal" data-hero-stage>
-            <img class="stage-fallback" src="assets/promo-worldcup.jpg" alt="G's Famous Pizza World Cup 26 watch party poster">
+            <img class="stage-fallback" data-slot="hero.poster" src="assets/promo-worldcup.jpg" alt="Featured poster">
             <canvas id="hero-scene" aria-label="Watch-party poster"></canvas>
-            <figcaption class="stage-caption">On now at the shop — World Cup 26, every match live</figcaption>
+            <figcaption class="stage-caption" data-slot="hero.posterCaption"></figcaption>
           </figure>
         </div>
       </section>
 
       <div class="ticker" aria-hidden="true">
-        <div class="ticker-track">
-          <span>Buy 2 pizzas w/ toppings — get a plain pizza free</span><i>★</i>
-          <span>7 days a week · all day · every day</span><i>★</i>
-          <span>Call ahead (732) 321-5005</span><i>★</i>
-          <span>Now serving falafel</span><i>★</i>
-          <span>Watch every match live</span><i>★</i>
-          <span>Buy 2 pizzas w/ toppings — get a plain pizza free</span><i>★</i>
-          <span>7 days a week · all day · every day</span><i>★</i>
-          <span>Call ahead (732) 321-5005</span><i>★</i>
-          <span>Now serving falafel</span><i>★</i>
-          <span>Watch every match live</span><i>★</i>
-        </div>
+        <div class="ticker-track"></div>
       </div>
 
       <section class="section menu-section" id="menu" aria-labelledby="menu-title">
         <div class="section-heading reveal">
-          <p class="eyebrow">The real menu</p>
-          <h2 id="menu-title">The pans.</h2>
-          <p>Forty pies and sides, exactly as they sell them — 10" personal pans, specialty pies, 16" large pans, wings, and fries. Buy 2 with any toppings, get 1 plain free.</p>
+          <p class="eyebrow" data-slot="headings.menu.eyebrow"></p>
+          <h2 id="menu-title" data-slot="headings.menu.title"></h2>
+          <p data-slot="headings.menu.copy"></p>
         </div>
         <div class="menu-tabs reveal" role="tablist" aria-label="Menu categories" data-category-tabs></div>
         <div class="menu-grid" data-menu-grid></div>
@@ -113,46 +102,35 @@
           </label>
           <p class="form-error" role="alert" data-form-error></p>
           <button class="button primary full" type="submit" data-place-order>Place order</button>
-          <p class="checkout-alt">Prefer delivery apps? <a href="https://www.grubhub.com/restaurant/guallpas-famous-pizza-1522-oak-tree-road-iselin/1754804" target="_blank" rel="noopener">Order on Grubhub</a> or call <a href="tel:+17323215005">(732) 321-5005</a>.</p>
+          <p class="checkout-alt">Prefer delivery apps? <a data-slot="links.grubhub" href="#" target="_blank" rel="noopener">Order on Grubhub</a> or call <a data-slot-phone href="#"><span data-slot="contact.phone"></span></a>.</p>
         </form>
       </section>
 
       <section class="section gallery-section" id="shop" aria-labelledby="gallery-title">
         <div class="section-heading reveal">
-          <p class="eyebrow">Straight from the shop</p>
-          <h2 id="gallery-title">Inside the famous.</h2>
-          <p>The counter, the deck ovens, the booths, and the watch-party wall — this is the real Oak Tree Road original.</p>
+          <p class="eyebrow" data-slot="headings.gallery.eyebrow"></p>
+          <h2 id="gallery-title" data-slot="headings.gallery.title"></h2>
+          <p data-slot="headings.gallery.copy"></p>
         </div>
-        <div class="gallery-grid">
-          <figure class="gallery-card tall reveal"><img src="assets/storefront-day.jpg" alt="Guallpa's Famous Pizza storefront on Oak Tree Road" loading="lazy"><figcaption>The shop, Oak Tree Road</figcaption></figure>
-          <figure class="gallery-card reveal"><img src="assets/kitchen.jpg" alt="The kitchen with deck ovens and pizza boxes" loading="lazy"><figcaption>Deck ovens, box stacks, checkered tile</figcaption></figure>
-          <figure class="gallery-card reveal"><img src="assets/interior-guests.jpg" alt="Regulars at a booth under the Famous Pizza mural" loading="lazy"><figcaption>Regulars under the mural</figcaption></figure>
-          <figure class="gallery-card reveal"><img src="assets/food-olive.jpg" alt="Black olive and jalapeño pies on the table" loading="lazy"><figcaption>Table pies, extra jalapeño</figcaption></figure>
-          <figure class="gallery-card reveal"><img src="assets/poster-round32.jpg" alt="World Cup Round of 32 watch party poster" loading="lazy"><figcaption>Watch-party wall, World Cup 26</figcaption></figure>
-        </div>
+        <div class="gallery-grid"></div>
       </section>
 
       <section class="section proof-section" id="proof" aria-labelledby="proof-title">
         <div class="section-heading reveal">
-          <p class="eyebrow">Find us everywhere</p>
-          <h2 id="proof-title">Follow the shop. Read the reviews.</h2>
-          <p>Rated 4.2★ on Grubhub — and the watch parties, deals, and fresh pies land on Facebook and Instagram first.</p>
+          <p class="eyebrow" data-slot="headings.proof.eyebrow"></p>
+          <h2 id="proof-title" data-slot="headings.proof.title"></h2>
+          <p data-slot="headings.proof.copy"></p>
         </div>
-        <div class="proof-grid">
-          <a class="proof-card reveal" href="https://www.facebook.com/guallpafamouspizza/" target="_blank" rel="noopener"><span>Facebook</span><strong>Local updates</strong></a>
-          <a class="proof-card reveal" href="https://www.instagram.com/guallpasfamouspizza/" target="_blank" rel="noopener"><span>Instagram</span><strong>Food gallery</strong></a>
-          <a class="proof-card reveal" href="https://www.yelp.com/biz/guallpas-famous-pizza-iselin" target="_blank" rel="noopener"><span>Yelp</span><strong>Review discovery</strong></a>
-          <a class="proof-card reveal" href="https://www.tripadvisor.com/Restaurant_Review-g46526-d5099150-Reviews-Guallpa_s_Famous_Pizza-Iselin_New_Jersey.html" target="_blank" rel="noopener"><span>Tripadvisor</span><strong>Traveler proof</strong></a>
-        </div>
+        <div class="proof-grid"></div>
       </section>
 
       <section class="visit-band" id="visit" aria-labelledby="visit-title">
         <div class="visit-copy reveal">
-          <p class="eyebrow">Visit the shop</p>
-          <h2 id="visit-title">Pull up to Oak Tree Road.</h2>
-          <p class="visit-detail"><strong>1522 Oak Tree Road, Iselin, NJ 08830</strong></p>
-          <p class="visit-detail"><a href="tel:+17323215005"><strong>(732) 321-5005</strong></a> · Pickup, delivery via Grubhub, and catering</p>
-          <p class="visit-note">Open 7 days a week. Call ahead for faster service.</p>
+          <p class="eyebrow" data-slot="visit.eyebrow"></p>
+          <h2 id="visit-title" data-slot="visit.title"></h2>
+          <p class="visit-detail"><strong data-slot="contact.address"></strong></p>
+          <p class="visit-detail"><a data-slot="contact.phoneHref" href="#"><strong data-slot="contact.phone"></strong></a> · <span data-slot="contact.orderLine"></span></p>
+          <p class="visit-note" data-slot="visit.note"></p>
           <button class="button primary" type="button" data-scroll-order>Start another order</button>
         </div>
       </section>
@@ -161,23 +139,23 @@
     <footer class="site-footer">
       <div class="footer-inner">
         <div class="footer-brand">
-          <img src="assets/logo-roundel.jpg" alt="Guallpa's chef mascot">
+          <img data-slot="brand.logoRoundel" src="assets/logo-roundel.jpg" alt="Mascot logo">
           <div>
-            <strong>G's Famous Pizza</strong>
-            <span>Guallpa's · Family-owned since 1999</span>
+            <strong data-slot="brand.name"></strong>
+            <span data-slot="brand.sub"></span>
           </div>
         </div>
         <div class="footer-col">
           <strong>Visit</strong>
-          <span>1522 Oak Tree Road, Iselin, NJ 08830</span>
-          <a href="tel:+17323215005">(732) 321-5005</a>
-          <span>Open 7 days a week</span>
+          <span data-slot="contact.address"></span>
+          <a data-slot-phone href="#"><span data-slot="contact.phone"></span></a>
+          <span data-slot="contact.hoursLine"></span>
         </div>
         <div class="footer-col">
           <strong>Order &amp; follow</strong>
-          <a href="https://www.grubhub.com/restaurant/guallpas-famous-pizza-1522-oak-tree-road-iselin/1754804" target="_blank" rel="noopener">Grubhub</a>
-          <a href="https://www.facebook.com/guallpafamouspizza/" target="_blank" rel="noopener">Facebook</a>
-          <a href="https://www.instagram.com/guallpasfamouspizza/" target="_blank" rel="noopener">Instagram</a>
+          <a data-slot="links.grubhub" href="#" target="_blank" rel="noopener">Grubhub</a>
+          <a data-slot="links.facebook" href="#" target="_blank" rel="noopener">Facebook</a>
+          <a data-slot="links.instagram" href="#" target="_blank" rel="noopener">Instagram</a>
         </div>
       </div>
     </footer>
@@ -191,6 +169,7 @@
 
     <div class="toast" data-toast role="status" aria-live="polite"></div>
 
+    <script src="site.config.js"></script>
     <script src="script.js"></script>
     <script type="module" src="hero3d.js"></script>
   </body>
