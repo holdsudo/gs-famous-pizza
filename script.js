@@ -221,3 +221,129 @@ cartList.addEventListener('click', (event) => {
 renderTabs();
 renderMenu();
 renderCart();
+
+const checkoutForm = document.querySelector('[data-checkout-form]');
+const formError = document.querySelector('[data-form-error]');
+const deliveryField = document.querySelector('.delivery-field');
+
+function scrollToOrder() {
+  document.querySelector('#menu').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+document.querySelectorAll('[data-scroll-order]').forEach((button) => {
+  button.addEventListener('click', scrollToOrder);
+});
+
+document.querySelector('[data-open-checkout]').addEventListener('click', () => {
+  document.querySelector('#checkout').scrollIntoView({ behavior: 'smooth', block: 'center' });
+});
+
+document.querySelectorAll('[data-order-type]').forEach((button) => {
+  button.addEventListener('click', () => {
+    state.orderType = button.dataset.orderType;
+    document.querySelectorAll('[data-order-type]').forEach((entry) => entry.classList.toggle('is-active', entry === button));
+    deliveryField.hidden = state.orderType !== 'delivery';
+  });
+});
+
+checkoutForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const data = new FormData(checkoutForm);
+  const name = String(data.get('customerName') || '').trim();
+  const phone = String(data.get('phone') || '').trim();
+  const address = String(data.get('address') || '').trim();
+  if (!state.cart.length) {
+    formError.textContent = 'Add an item before placing a mock order.';
+    return;
+  }
+  if (!name || !phone) {
+    formError.textContent = 'Add your name and phone to place the mock order.';
+    return;
+  }
+  if (state.orderType === 'delivery' && !address) {
+    formError.textContent = 'Add a delivery address for delivery mock mode.';
+    return;
+  }
+  formError.textContent = '';
+  const confirmation = `GFP-${Math.floor(1000 + Math.random() * 9000)}`;
+  checkoutForm.innerHTML = `
+    <div class="confirmation">
+      <p class="eyebrow">Confirmed mock order</p>
+      <h2>Order received</h2>
+      <p>Your mock order number is <strong>${confirmation}</strong>. Estimated ${state.orderType === 'pickup' ? 'pickup' : 'delivery'} time: ${data.get('scheduledTime')}.</p>
+      <a class="button primary" href="https://www.instagram.com/guallpasfamouspizza/" target="_blank" rel="noopener">Follow on Instagram</a>
+    </div>
+  `;
+  showToast(`Mock order ${confirmation} confirmed`);
+});
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) entry.target.classList.add('is-visible');
+  });
+}, { threshold: 0.14 });
+
+document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+
+function startHeroScene() {
+  const canvas = document.querySelector('#hero-scene');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const context = canvas.getContext('2d');
+  let width = 0;
+  let height = 0;
+  let frame = 0;
+
+  function resize() {
+    width = canvas.width = canvas.offsetWidth * window.devicePixelRatio;
+    height = canvas.height = canvas.offsetHeight * window.devicePixelRatio;
+    context.setTransform(window.devicePixelRatio, 0, 0, window.devicePixelRatio, 0, 0);
+  }
+
+  function drawPizza(x, y, radius, rotation) {
+    context.save();
+    context.translate(x, y);
+    context.rotate(rotation);
+    const gradient = context.createRadialGradient(0, 0, radius * .1, 0, 0, radius);
+    gradient.addColorStop(0, '#ffd86f');
+    gradient.addColorStop(.62, '#f0b84c');
+    gradient.addColorStop(.75, '#b45b22');
+    gradient.addColorStop(1, '#6f2b16');
+    context.fillStyle = gradient;
+    context.beginPath();
+    context.arc(0, 0, radius, 0, Math.PI * 2);
+    context.fill();
+    const toppings = [
+      [-.35, -.24, '#b9271c'], [.2, -.18, '#b9271c'], [.38, .2, '#b9271c'],
+      [-.18, .32, '#2f6f47'], [.18, .42, '#17130f'], [.08, -.45, '#f7f1e7']
+    ];
+    toppings.forEach(([tx, ty, color]) => {
+      context.fillStyle = color;
+      context.beginPath();
+      context.arc(tx * radius, ty * radius, radius * .09, 0, Math.PI * 2);
+      context.fill();
+    });
+    context.restore();
+  }
+
+  function draw() {
+    context.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
+    const displayWidth = canvas.offsetWidth;
+    const displayHeight = canvas.offsetHeight;
+    const pulse = reduceMotion ? 0 : Math.sin(frame / 70) * 8;
+    drawPizza(displayWidth * .72, displayHeight * .45 + pulse, Math.min(displayWidth, displayHeight) * .22, -.2 + frame / 900);
+    context.fillStyle = 'rgba(217,164,65,.08)';
+    for (let i = 0; i < 7; i += 1) {
+      context.beginPath();
+      context.arc(displayWidth * (.58 + i * .06), displayHeight * (.24 + (i % 3) * .18), 80 + i * 18, 0, Math.PI * 2);
+      context.fill();
+    }
+    frame += 1;
+    if (!reduceMotion) requestAnimationFrame(draw);
+  }
+
+  resize();
+  draw();
+  window.addEventListener('resize', resize);
+}
+
+startHeroScene();

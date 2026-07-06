@@ -31,5 +31,5 @@ test('checkout validates required fields and creates confirmation', async ({ pag
   await page.getByLabel(/Phone/i).fill('7325550100');
   await page.getByRole('button', { name: /Place mock order/i }).click();
   await expect(page.getByRole('heading', { name: /Order received/i })).toBeVisible();
-  await expect(page.getByText(/GFP-/)).toBeVisible();
+  await expect(page.getByText(/GFP-/).first()).toBeVisible();
 });

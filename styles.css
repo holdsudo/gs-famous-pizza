@@ -312,6 +312,29 @@ input, select {
   .visit-section { padding: 34px 22px; }
 }
 
+.confirmation {
+  min-height: 420px;
+  display: grid;
+  align-content: center;
+  gap: 16px;
+  padding: 28px;
+  border-radius: 22px;
+  color: #fff;
+  background:
+    radial-gradient(circle at 76% 26%, rgba(217,164,65,.72), transparent 26%),
+    linear-gradient(145deg, #100d0b, #4b1711);
+}
+.confirmation h2 {
+  margin: 0;
+  font-size: clamp(42px, 6vw, 72px);
+  line-height: .9;
+  letter-spacing: -.055em;
+}
+.confirmation p {
+  color: rgba(255,255,255,.72);
+  line-height: 1.5;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {
