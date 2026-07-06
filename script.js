@@ -276,7 +276,7 @@ document.querySelectorAll('[data-order-type]').forEach((button) => {
 });
 
 const ORDER_INBOX = 'https://formsubmit.co/ajax/johntaco11@gmail.com';
-const LIVE_HOSTS = ['github.io'];
+const LIVE_HOSTS = ['github.io', 'joe-miz.com'];
 
 function orderSummaryText() {
   const t = totals();
